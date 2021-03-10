@@ -12,6 +12,15 @@ async function automateSearch() {
   await page.type(".gLFyf.gsfi", "Bloxico");
   await page.waitForTimeout(2000);
   await page.click(".gNO89b");
+  await page.waitForTimeout(2000);
+
+  const bloxicoLink = await page.evaluate(() => window.find("bloxico.com"));
+  await page.waitForTimeout(2000);
+  if (bloxicoLink) {
+    console.log("Bloxico sajt je uspešno pronađen");
+  } else {
+    console.log("Bloxico sajt nije pronađen");
+  }
 }
 
 main();
